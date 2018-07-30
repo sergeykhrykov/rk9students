@@ -1,0 +1,35 @@
+﻿<div *ngIf="auth.authenticated()">
+    <input id="open-file-dlg" (change)="openedFileChanged($event)" type="file" accept="application/sla">
+    <input id="add-file-dlg" (change)="addedFileChanged($event)" type="file" accept="application/sla">
+    <input id="show-info" type="checkbox" [(ngModel)]="showInfo">
+    <input id="load-cloud" type="checkbox" [(ngModel)]="loadCloudRequested">
+    <input id="import-cloud" type="checkbox" [(ngModel)]="importCloudRequested">
+    <input id="save-cloud" type="checkbox" [(ngModel)]="saveCloudRequested">
+    <headerbar [showInfo]="showInfo"></headerbar>
+    <div class="workspace-wrapper">
+        <workspace [showInfo]="showInfo"></workspace>
+    </div>
+    <div class="load-form" *ngIf="loadCloudRequested || importCloudRequested">
+        <div class="title">Хранимые файлы</div>
+        <div class="content">
+            <div class="elem" *ngFor="let mod of cloud.models">
+                <span>{{mod.name}}</span>
+                <div class="btn" (click)="loadModel(mod.value); loadCloudRequested=importCloudRequested=false">Загрузить</div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="btn" (click)="loadCloudRequested=importCloudRequested=false">Закрыть</div>
+        </div>
+    </div>
+    <div class="save-form" *ngIf="saveCloudRequested">
+        <div class="title">Сохранить</div>
+        <div class="content">
+            <span>Введите имя: </span>
+            <input type="text" [(ngModel)]="cloudName" />
+        </div>
+        <div class="footer">
+            <div class="btn" (click)="saveCloudRequested=false">Закрыть</div>
+            <div class="btn save" (click)="saveCloudRequested=false; saveModels();" *ngIf="cloudName">Сохранить</div>
+        </div>
+    </div>
+</div>

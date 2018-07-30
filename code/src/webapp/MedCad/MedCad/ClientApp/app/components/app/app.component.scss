@@ -1,0 +1,25 @@
+html {
+    background-color: #111111;
+}
+
+.welcome {
+    background-color: #111111;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.welcome__greeting {
+    font-size: 3em;
+    border-width: 0px;
+    color: rgba(220, 220, 220, 1);
+}
+
+.welcome__button {
+    border-radius: 10px;
+    font-size: 3em;
+    border-width: 0px;
+    background-color: rgba(220, 220, 220, 1);
+    margin-left: 20px;
+}

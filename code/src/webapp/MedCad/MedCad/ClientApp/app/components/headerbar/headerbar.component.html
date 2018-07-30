@@ -1,0 +1,74 @@
+﻿<nav class="navbar navbar-fixed-top navbar-inverse headerbar">
+    <div class="fluid-container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">WebCAD</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Файл</a>
+                    <ul class="dropdown-menu">
+                        <li (click)="openFileContextClickHandler()">Открыть</li>
+                        <li (click)="addFileContextClickHandler()">Импорт</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Облако</a>
+                    <ul class="dropdown-menu">
+                        <li (click)="saveCloudContextClickHandler()">Сохранить модель</li>
+                        <li (click)="openCloudContextClickHandler()">Открыть модель</li>
+                        <li (click)="addCloudContextClickHandler()">Импорт модели</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Правка</a>
+                    <ul class="dropdown-menu">
+                        <li (click)="clearSceen()">Очистить</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Вид</a>
+                    <ul class="dropdown-menu">
+                        <li (click)="model.setView(1)">Спереди</li>
+                        <li (click)="model.setView(2)">Сзади</li>
+                        <li (click)="model.setView(3)">Сверху</li>
+                        <li (click)="model.setView(4)">Снизу</li>
+                        <li (click)="model.setView(5)">Слева</li>
+                        <li (click)="model.setView(6)">Справа</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Инфо</a>
+                    <ul class="dropdown-menu">
+                        <li (click)="toggleInfo()">{{showInfo ? 'Скрыть ' : 'Показать '}}информацию</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="btn-group navbar-right">
+                <div class="user-controll">
+                    <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-user"> </span> {{auth?.userProfile?.email}} <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Личный кабинет</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a (click)="auth.logout()" *ngIf="auth.authenticated()">Выйти</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

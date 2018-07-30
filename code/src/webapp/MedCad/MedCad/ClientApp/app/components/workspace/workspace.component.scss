@@ -1,0 +1,22 @@
+.workspace{
+    background-color:#3b3b3b;
+    height:100%;
+    color:white;
+    overflow: hidden;
+
+    .model-info{
+        padding-left: 17px;
+        font-size: 12px;
+        opacity: 0.5;
+        position: fixed;
+
+        p{
+            margin:0;
+        }
+
+        .info-title{
+            width: 75px;
+            display: inline-block;
+        }
+    }
+}

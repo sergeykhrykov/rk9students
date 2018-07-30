@@ -1,0 +1,7 @@
+<div class="welcome" *ngIf="!auth.authenticated()">
+    <h1 class="welcome__greeting">Welcome to Webcad</h1>
+    <button (click)="auth.login()" class="welcome__button">Sign in</button>
+    <button (click)="auth.logout()" class="welcome__button">Log out</button>
+</div>
+
+<router-outlet></router-outlet>
